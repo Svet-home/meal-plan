@@ -1,12 +1,29 @@
 
 import './App.css';
+import { MyMeals } from './MyMeals';
+import {useState } from 'react';
+import { getAllMeals } from './FetchMeals';
 
 function App() {
+  const [myMeal,setMeal] = useState([])
+
+  useEffect(() => {
+    getAllMeals(setMeal)
+   }, [])
+
+
   return (
     <div>
-      <h1>Meal Plan</h1>
-      <input type="text" placeholder="ADD a meal"/>
-      <button>ADD</button>
+      <h1>MEAL PLAN</h1>
+      <input type="text" placeholder="add a meal"/>
+      <button>Add</button>
+
+    {/*<MyMeals text="We got here"/>*/}
+
+    {myMeal.map((meal) => <MyMeals text={meal.title}/>
+    )}
+
+
     </div>
   );
 }
