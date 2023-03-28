@@ -1,8 +1,9 @@
 
 import './App.css';
 import { MyMeals } from './MyMeals';
-import {useState } from 'react';
+import {useState,useEffect } from 'react';
 import { getAllMeals } from './FetchMeals';
+
 
 function App() {
   const [myMeal,setMeal] = useState([])
@@ -11,8 +12,7 @@ function App() {
     getAllMeals(setMeal)
    }, [])
 
-
-  return (
+return (
     <div>
       <h1>MEAL PLAN</h1>
       <input type="text" placeholder="add a meal"/>
@@ -23,8 +23,7 @@ function App() {
     {myMeal.map((meal) => <MyMeals text={meal.title}/>
     )}
 
-
-    </div>
+</div>
   );
 }
 
