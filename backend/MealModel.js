@@ -6,4 +6,4 @@ const mealSchema = new mongoose. Schema({
     }
 })
 
-const mealmodel = mongoose.model('meal', mealSchema)
+module.exports = mongoose.model('meal', mealSchema)

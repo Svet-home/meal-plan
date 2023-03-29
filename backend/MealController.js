@@ -1,23 +1,14 @@
-// const mealSchema = require(`./MealModel`)
+ const { findByIdAndUpdate } = require("./MealModel");
 
+const MealModel = require(`./MealModel`)
 
-const mongoose = require('mongoose');
-const mealSchema = new mongoose. Schema({
-    title:{
-        type: String,
-        required:true
-    }
-})
-
-const mealmodel = mongoose.model('meal', mealSchema)
 //GET
 
 module.exports.getMeal = async (req,res) =>{
 try {
-    console.log(req.body)
-    const myMeal = await mealmodel.find();
-    console.log(myMeal, '---------------');
-    res.send(myMeal);
+    const myMeal = await MealModel.find();
+  
+    res.status(200).send(myMeal);
 } catch (err) {
     console.log(err)
 }    
@@ -26,15 +17,47 @@ try {
 //POST
 
 module.exports.saveMeals = async(req,res) =>{
-    try{
-        console.log(req.body) 
-        const { title } = req.body;
-        mealmodel.create({ title })
-        .then((data) => res.send(data))
-        res.send({
-            "status": "success"
-        })
-    } catch(err){
-        console.log(err)  
+
+try {
+    const { title } = req.body;
+
+    MealModel.create({title})
+    .then((data) => { console.log('meal added');
+    res.send(data)
+ })    
+
 }
+catch (error) {
+    res.status(400).json({message: error.message})
+}
+}
+
+//Delete
+
+module.exports.deleteMeal = async(req,res) => {
+
+try{
+    const { _id } = req.body
+    MealModel.findByIdAndDelete(_id)
+    .then(() =>res.send(`Deleted a meal`))
+}
+
+catch (error) {
+    res.status(400).json({message: error.message})
+}
+}
+
+//iDET(PUT)
+
+module.exports.editMeal =async(req,res) =>{
+
+   try{
+    const{ _id,title } = req.body
+    MealModel.findByIdAndUpdate(_id,{title})
+    .then(() => res.send (`Edited a meal`))
+   } 
+
+   catch (error) {
+    res.status(400).json({message: error.message})
+} 
 }
