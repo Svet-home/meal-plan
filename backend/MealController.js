@@ -37,9 +37,13 @@ catch (error) {
 module.exports.deleteMeal = async(req,res) => {
 
 try{
-    const { _id } = req.body
-    MealModel.findByIdAndDelete(_id)
-    .then(() =>res.send(`Deleted a meal`))
+    const { _id } = req.params
+console.log(req);
+    console.log(_id);
+    const meal = await MealModel.deleteOne( { _id : req.params.id } );
+    return res.json({ msg: 'Параметр удален', meal });
+   // MealModel.deleteOne(_id)
+   //.then(() =>res.send(`Deleted a meal`))
 }
 
 catch (error) {
