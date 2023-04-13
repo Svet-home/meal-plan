@@ -2,19 +2,16 @@
 
 const MealModel = require(`./MealModel`)
 
-//GET
-
 module.exports.getMeal = async (req,res) =>{
+
 try {
     const myMeal = await MealModel.find();
-  
-    res.status(200).send(myMeal);
+   res.status(200).send(myMeal);
 } catch (err) {
     console.log(err)
-}    
-}
+}  
 
-//POST
+}
 
 module.exports.saveMeals = async(req,res) =>{
 
@@ -25,14 +22,12 @@ try {
     .then((data) => { console.log('meal added');
     res.send(data)
  })    
-
 }
+
 catch (error) {
     res.status(400).json({message: error.message})
 }
 }
-
-//Delete
 
 module.exports.deleteMeal = async(req,res) => {
 
@@ -42,26 +37,22 @@ console.log(req);
     console.log(_id);
     const meal = await MealModel.deleteOne( { _id : req.params.id } );
     return res.json({ msg: 'Параметр удален', meal });
-   // MealModel.deleteOne(_id)
-   //.then(() =>res.send(`Deleted a meal`))
-}
+  }
 
 catch (error) {
     res.status(400).json({message: error.message})
 }
 }
 
-//iDET(PUT)
-
 module.exports.editMeal =async(req,res) =>{
 
-   try{
+try{
     const{ _id,title } = req.body
     MealModel.findByIdAndUpdate(_id,{title})
     .then(() => res.send (`Edited a meal`))
    } 
-
-   catch (error) {
+catch (error) {
     res.status(400).json({message: error.message})
 } 
+
 }

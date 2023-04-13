@@ -1,48 +1,46 @@
-
-
-@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
-
-
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 body{
-  background: url('https://images.unsplash.com/photo-1543353071-873f17a7a088?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhlYWx0aHklMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60');
+  background: url('https://i.pinimg.com/564x/86/a2/a8/86a2a880bbe95ea1f3b9f7fb72683aa7.jpg');
   background-size: cover;
   min-height: 100vh;
   display: grid;
   place-items: center;
-  font-family: 'Fasthand', cursive;
+  font-family: 'Caveat', cursive;
 }
-h1{
-  font-family: 'Fasthand', cursive;
+.header{
+  font-family: 'Caveat', cursive;
   font-size: 40px;
 }
+.form{
+  font-size: 30px;
+}
+
 input{
   display: block;
   width: 100%;
+  border-radius: 20px;
   border: none;
   color: white;
   font-size: 30px;
-  background: #313133;
+  background: #413543;
   padding: 20px;
-  font-family: 'Fasthand', cursive;
+  font-family: 'Caveat', cursive;
   margin-bottom: 20px;
 }
 button{
   padding: 20px 50px 20px 70px;
-  background-color: #024d3d;
+  background-color: #408E91;
+  border-radius: 20px;
   color: white;
   font-size: 30px;
   cursor: pointer;
-  font-family: 'Fasthand', cursive;
+  font-family: 'Caveat', cursive;
 }
 p{
   max-width: 100%;
   background: beige;
   margin-top: 20px;
-  font-family: 'Fasthand', cursive;
+  font-family: 'Caveat', cursive;
   width: 600px;
   font-size: 20px;
 }
