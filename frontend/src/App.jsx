@@ -96,7 +96,7 @@ try {
     message: values.message 
   }
 
-  const respt = await axios.post(`http://localhost:7000/saveMessage`, massege)
+  const respt = await axios.post(`https://meal-plan-svet-home2.onrender.com/saveMessage`, massege)
 if(respt.status ===200){
   setValues({
     name: "",

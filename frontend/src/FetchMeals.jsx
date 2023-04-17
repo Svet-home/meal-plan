@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BASE_URL ='http://localhost:7000'
+export const BASE_URL ='https://meal-plan-svet-home2.onrender.com'
 
 export const ADD_MEAL_URL = `${BASE_URL}/saveMeals`
 export const EDIT_MEAL_URL = `${BASE_URL}/editMeal`
